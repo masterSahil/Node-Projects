@@ -123,9 +123,9 @@ http://localhost:8000
 * http://localhost:8000/user?name=Sahil
   <br>
   ![index](./screenshots/i1.png)
+  ![query](./screenshots/i4.png)
   ![api](./screenshots/i2.png)
   ![text](./screenshots/i3.png)
-  ![query](./screenshots/i4.png)
 
 ---
 
