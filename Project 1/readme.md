@@ -116,14 +116,15 @@ http://localhost:8000
 ## 📸 Example URLs
 
 * http://localhost:8000/
-  ![index](./screenshots/i1.png)
 * http://localhost:8000/about
 * http://localhost:8000/contact
 * http://localhost:8000/api
-  ![api](./screenshots/i2.png)
 * http://localhost:8000/text
-  ![text](./screenshots/i3.png)
 * http://localhost:8000/user?name=Sahil
+  <br>
+  ![index](./screenshots/i1.png)
+  ![api](./screenshots/i2.png)
+  ![text](./screenshots/i3.png)
   ![query](./screenshots/i4.png)
 
 ---
