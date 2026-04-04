@@ -1,45 +1,81 @@
-# 📝 Node.js Express Todo App
+# 📝 TodoApp Pro — Professional Task Management System
 
-A simple, fast, and modern Todo List application built with Node.js, Express, and EJS. This app allows users to create, read, update, and delete (CRUD) tasks efficiently, featuring a responsive and clean UI.
+A **modern, real-time Todo Management System** built with **Node.js, Express, and EJS**. This app goes beyond basic CRUD by offering a **clean dashboard, real-time stats, and advanced task tracking** for productivity-focused users.
+
+---
+### 📊 Dashboard
+
+![Dashboard Preview](./public/screenshot/img2.png)
+
+### ➕ Add Task
+
+![Add Task Preview](./public/screenshot/img3.png)
+
+### ➕ Edit Task
+
+![Edit Task Preview](./public/screenshot/img4.png)
+
+### ➕ Empty
+
+![Preview](./public/screenshot/img1.png)
 
 ---
 
-## 📸 Preview
+## ✨ Key Features
 
-![App Screenshot 1](./public/screenshot/preview1.png)
-![App Screenshot 2](./public/screenshot/preview2.png)
+* 📊 **Real-Time Dashboard**
+  View total, pending, and completed tasks instantly.
 
----
+* 📋 **Full CRUD Operations**
+  Create, read, update, and delete tasks seamlessly.
 
-## ✨ Features
+* 🏷️ **Advanced Task Tracking**
+  Manage tasks with:
 
-* 📋 View all tasks with title and description
-* ➕ Add new tasks instantly
-* ✏️ Edit existing tasks
-* ❌ Delete tasks with confirmation
-* 🎨 Clean and responsive UI with modern styling
+  * Priority: High / Medium / Low
+  * Status: Pending / In Progress / Completed
+
+* 🔄 **Quick Status Updates**
+  Change task status directly from dashboard.
+
+* 🎨 **Premium UI/UX**
+
+  * Clean grid layouts
+  * Smooth hover effects
+  * Soft shadows
+  * Fully responsive design
+
+* 🧩 **Modular Code Structure**
+  Reusable EJS partials for maintainability.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Node.js, Express.js (v5.1.0)
-* **Templating Engine:** EJS
-* **Styling:** CSS3
-* **Dev Tool:** Nodemon
+| Layer     | Technology                  |
+| --------- | --------------------------- |
+| Backend   | Node.js, Express.js         |
+| Frontend  | EJS Templates               |
+| Styling   | Custom CSS (Flexbox + Grid) |
+| Dev Tools | Nodemon                     |
 
 ---
 
 ## 📁 Project Structure
 
-```
+```bash
 todo-app/
 ├── public/
-│   └── css/
-│       └── style.css
+│   ├── css/
+│   │   └── style.css
+│   └── screenshot/
 ├── views/
+│   ├── partials/
+│   │   ├── header.ejs
+│   │   └── footer.ejs
 │   ├── index.ejs
-│   └── edit.ejs
+│   ├── add-task.ejs
+│   └── edit-task.ejs
 ├── app.js
 ├── package.json
 └── README.md
@@ -47,54 +83,69 @@ todo-app/
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Getting Started
 
 ### 🔹 Prerequisites
 
 Make sure you have installed:
 
-* Node.js
+* Node.js (v18+ recommended)
+* npm (comes with Node)
 
 ---
 
-### 🔹 Installation
+### ▶️ Run the Application
 
 ```bash
-# Clone the repo
-git clone https://github.com/masterSahil/todo-app.git
-
-# Navigate into the folder
-cd todo-app
-
-# Install dependencies
-npm install
-```
-
----
-
-### ▶️ Run the App
-
-```bash
-# Run using nodemon
+# Run in development mode
 npm run dev
 
 # OR run normally
 node app.js
 ```
 
-Open your browser and go to:
+---
+
+## 🌐 Access the App
+
+Open your browser and visit:
 
 👉 [http://localhost:8020](http://localhost:8020)
 
 ---
 
-## 💡 Note on Data Storage
+## 📌 Future Improvements
 
-⚠️ This app currently uses **in-memory storage**.
+* 🔐 User Authentication (Login / Signup)
+* ☁️ Database Integration (MongoDB / Firebase)
+* 📱 Progressive Web App (PWA)
+* 📊 Advanced Analytics Dashboard
+* 🌙 Dark Mode Support
 
-* All tasks are stored in a local array
-* Data will reset when the server restarts
+---
 
-👉 For production, integrate a database like MongoDB.
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Sahil Master**
+
+* GitHub: [https://github.com/masterSahil](https://github.com/masterSahil)
 
 ---
