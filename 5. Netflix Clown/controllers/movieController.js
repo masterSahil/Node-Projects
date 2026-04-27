@@ -21,8 +21,11 @@ module.exports.getMovies = async (req, res) => {
 module.exports.createMovie = async (req, res) => {
     try {
         const {poster, title, year, genre, director, rating, duration, description} = req.body;
-        const newMovie = new movieSchema({poster: req.file ? `/upload/${req.file.filename}` : null, title, year, genre, director, rating, duration, description});
 
+        genre = genre.split(",").map(g => g.trim());
+        director = director.split(",").map(item => item.trim());
+        
+        const newMovie = new movieSchema({poster: req.file ? `/upload/${req.file.filename}` : null, title, year, genre, director, rating, duration, description});
         await newMovie.save();
 
         res.redirect("/");
@@ -36,9 +39,12 @@ module.exports.createMovie = async (req, res) => {
 
 module.exports.updateMovie = async (req, res) => {
     try {
-        const { title, year, genre, director, rating, duration, description } = req.body;
-        const movie = await movieSchema.findById(req.params.id);
+        let { title, year, genre, director, rating, duration, description } = req.body;
 
+        genre = genre.split(",").map(g => g.trim());
+        director = director.split(",").map(d => d.trim());
+
+        const movie = await movieSchema.findById(req.params.id);
         let updateData = { title, year, genre, director, rating, duration, description };
 
         if (req.file) {

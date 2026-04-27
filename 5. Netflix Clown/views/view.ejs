@@ -19,7 +19,11 @@
             <span>⭐ <%= movie.rating %></span>
             <span><%= movie.year %></span>
             <span><%= movie.duration %> min</span>
-            <span class="genre"><%= movie.genre %></span>
+            <div class="genre-boxes">
+                <% (Array.isArray(movie.genre) ? movie.genre : movie.genre.split(",")).forEach(g => { %>
+                <span class="genre-box"><%= g.trim() %></span>
+                <% }) %>
+            </div>
             </div>
 
             <p class="desc">
@@ -30,12 +34,20 @@
 
                 <div class="info-card">
                     <p class="label">Director</p>
-                    <p class="value"><%= movie.director %></p>
+                    <div class="director-boxes">
+                    <% movie.director.forEach(d => { %>
+                        <span class="director-box"><%= d %></span>
+                    <% }) %>
+                    </div>
                 </div>
 
                 <div class="info-card">
                     <p class="label">Genre</p>
-                    <p class="value"><%= movie.genre %></p>
+                    <div class="director-boxes">
+                    <% movie.genre.forEach(d => { %>
+                        <span class="director-box"><%= d %></span>
+                    <% }) %>
+                    </div>  
                 </div>
 
                 <div class="info-card">
