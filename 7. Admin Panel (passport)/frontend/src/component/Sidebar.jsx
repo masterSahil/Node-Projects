@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, UserPlus, Users, Settings, LogOut, ChevronRight } from 'lucide-react';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SidebarItem = ({ icon: Icon, label, to }) => {
   const location = useLocation();
@@ -24,6 +26,21 @@ const SidebarItem = ({ icon: Icon, label, to }) => {
 };
 
 export default function Sidebar() {
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await axios.get("http://localhost:9000/logout", {
+        withCredentials: true
+      });
+
+      navigate("/");  
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <aside className="hidden lg:flex w-64 flex-col bg-slate-950 text-white border-r border-slate-800 relative h-screen">
       {/* Brand Header */}
@@ -77,7 +94,11 @@ export default function Sidebar() {
               <p className="text-xs text-gray-400">Admin</p>
             </div>
           </div>
-          <LogOut size={16} className="text-gray-400 hover:text-white transition-colors" />
+          <LogOut 
+              size={16} 
+              onClick={handleLogout}
+              className="text-gray-400 hover:text-white transition-colors cursor-pointer" 
+            />
         </div>
       </div>
       

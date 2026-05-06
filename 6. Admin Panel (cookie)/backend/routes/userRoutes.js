@@ -25,5 +25,6 @@ router.post("/signup", userController.Register);
 router.post("/login", userController.login);
 
 router.get("/auth-check", userController.AuthCheck);
+router.get("/logout", userController.logout);
 
 module.exports = router;

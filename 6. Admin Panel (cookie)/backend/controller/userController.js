@@ -37,7 +37,9 @@ exports.getSingleUser = async (req, res) => {
 exports.createUser = async (req, res) => {
     try {
         const {name, email, password, phone, role, image} = req.body;
-        const user = await UserSchema.create({name, email, password, phone, role, 
+        const hashPassword = await bcrypt.hash(password, 10);
+
+        const user = await UserSchema.create({name, email, password: hashPassword, phone, role, 
             image: req.file ? `/uploads/${req.file.filename}` : null});
 
         res.status(201).json({ success: true, user })
@@ -75,8 +77,12 @@ exports.updateUser = async (req, res) => {
             updatedImage = `/uploads/${req.file.filename}`;
         }
 
+        let updatedPassword = user.password;
+        if (password) {
+            updatedPassword = await bcrypt.hash(password, 10);
+        }
         const updatedUser = await UserSchema.findByIdAndUpdate(req.params.id, 
-            { name, email, password: password || user.password,  phone, role, image: updatedImage }, {new: true});
+            { name, email, password: updatedPassword,  phone, role, image: updatedImage }, {new: true});
 
         res.status(200).json({
             success: true,
@@ -211,3 +217,16 @@ exports.AuthCheck = async (req, res) => {
         })
     }
 }
+
+exports.logout = (req, res) => {
+    res.clearCookie("admin", {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: false
+    });
+
+    res.status(200).json({
+        success: true,
+        message: "Logged out successfully"
+    });
+};
